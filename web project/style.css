@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background: linear-gradient(#F1FAFF,#CBE4FF);
+}
+.sidebar{
+    background: #151A2D;
+    width: 270px;
+    position: fixed;
+    margin: 16px;
+    border-radius: 16px;
+    height: calc(100vh - 32px);
+    transition: 0.4s ease;
+}
+.sidebar.collapsed{
+    width: 85px;
+}
+.sidebar-nav .nav-links{
+    color: #fff;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    transition: 0.4s ease;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.sidebar-nav .nav-links:hover{
+    background: #fff;
+    color: #151A2D;
+}
+.sidebar-nav .nav-links .nav-label{
+    transition: opacity 0.4s ease;
+}
+.sidebar.collapsed .sidebar-nav .nav-links .nav-label{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar-header{
+    display: flex;
+    padding: 25px 20px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.sidebar-header .header-logo img{
+    width: 46px;
+    height: 46px;
+    display: block;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.sidebar-nav .nav-list{
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    padding: 0 15px;
+    flex-direction: column;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+.sidebar-header .toggler{
+    position: absolute;
+    right: 20px;
+    height: 35px;
+    width: 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background: #fff;
+    color: #151A2D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s ease;
+}
+.sidebar.collapsed .sidebar-header .toggler{
+    transform: translate(-4px, 65px);
+}
+.sidebar-header .toggler span{
+    transition: 0.4s ease;
+}
+.sidebar.collapsed .sidebar-header .toggler span{
+    transform: rotate(180deg);
+}
+.sidebar-header .toggler:hover{
+    background: #dde4fb;
+}
+.sidebar-nav .secondary-nav{
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+.sidebar.collapsed .sidebar-nav .primary-nav{
+    transform: translateY(65px);
+}
+.sidebar-nav .nav-item{
+    position: relative;
+}
+.sidebar-nav .nav-tooltip{
+    position: absolute;
+    color: #151A2D;
+    background: #fff;
+    top: -10px;
+    left: calc(100% + 25px);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0s;
+    display: none;
+}
+.sidebar.collapsed .sidebar-nav .nav-tooltip{
+    display: block;
+}
+.sidebar-nav .nav-item:hover .nav-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(50%);
+    transition: 0.4s ease;
+}
+
+/* @media (max-width:1024px) {
+    .sidebar{
+        margin: 13px;
+        width: calc(100%-28px);
+    }
+} */
